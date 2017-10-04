@@ -58,29 +58,15 @@
     <Compile Include="VHMsgThread.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\vhmsg\vhmsg-net\vhmsg-net.csproj">
+    <ProjectReference Include="..\vhmsg-net\vhmsg-net.csproj">
       <Project>{DE4240A9-DBBA-410F-888F-462384A5B280}</Project>
-      <Name>vhmsg-net-2010</Name>
+      <Name>vhmsg-net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Debug copy /Y "$(TargetPath)" "..\..\$(TargetName)d$(TargetExt)"
-if $(ConfigurationName) == Release copy /Y "$(TargetPath)" ..\..
-copy /Y "$(TargetDir)\vhmsg-net.dll" ..\..
-copy /Y "$(TargetDir)\Apache.NMS.dll" ..\..
-copy /Y "$(TargetDir)\Apache.NMS.ActiveMQ.dll" ..\..
-copy /Y "$(TargetDir)\Ionic.Zlib.dll" ..\..
-
-if not exist ..\..\..\..\bin\StanfordParserWrapper mkdir ..\..\..\..\bin\StanfordParserWrapper
-if $(ConfigurationName) == Debug copy /Y "$(TargetPath)" "..\..\..\..\bin\StanfordParserWrapper\$(TargetName)d$(TargetExt)"
-if $(ConfigurationName) == Release copy /Y "$(TargetPath)" ..\..\..\..\bin\StanfordParserWrapper
-copy /Y "$(TargetDir)\vhmsg-net.dll" ..\..\..\..\bin\StanfordParserWrapper
-copy /Y "$(TargetDir)\Apache.NMS.dll" ..\..\..\..\bin\StanfordParserWrapper
-copy /Y "$(TargetDir)\Apache.NMS.ActiveMQ.dll" ..\..\..\..\bin\StanfordParserWrapper
-copy /Y "$(TargetDir)\Ionic.Zlib.dll" ..\..\..\..\bin\StanfordParserWrapper
-copy /Y "..\..\runStanfordParser.bat" ..\..\..\..\bin\StanfordParserWrapper
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
